@@ -20,7 +20,9 @@
               </div>
               <div class="card-body" style="margin: auto">
                 <datepicker format="MM/dd" :bootstrap-styling="true" :monday-first="true" v-model="vDateStart"></datepicker>
-                <p>{{ vDateStart }}</p>
+                <div class="mt-3">
+                  <p>Lead start date: <strong>{{ dateStartSimple }}</strong></p>
+                </div>
                 <button @click="calculateDueDates()" class="btn btn-primary"> {{ textStartDate }} </button>
                             
               </div>
@@ -42,6 +44,9 @@
                   </div>
               </div>
               <div class="card-body" style="margin: auto">
+                <div class="mt-3">
+                  <p>Enter times for your own reference</p>
+                </div>
                 <input data-v-4a88859a="" type="text" placeholder="9:00 AM" aria-label="Search" aria-describedby="basic-addon2" class="form-control bg-light border-0 small"> 
                 <input data-v-4a88859a="" type="text" placeholder="11:00 AM" aria-label="Search" aria-describedby="basic-addon2" class="form-control bg-light border-0 small">           
               </div>
@@ -124,6 +129,7 @@ export default {
         type: Date,
         default: null
       },
+      dateStartSimple: null,
       textStartDate: "Add New Start Date",
       timeDifference: null
     }
@@ -135,14 +141,14 @@ export default {
       })
     },
     addAssignment() {
-      this.assignments.push({ dueDate: this.vDateDue, id: this.assignments.length - 1 })
+      this.assignments.push({ dueDate: this.vDateDue.toDateString(), id: this.assignments.length - 1 })
     },
     calculateDueDates() {
       if (this.timeDifference != null) {
         let newTimeString = new Date(this.vDateStart).getTime()
         
         // eslint-disable-next-line
-        console.log(newTimeString)
+        // console.log(newTimeString)
 
         this.timeDifference = newTimeString - this.dateStart.getTime()
 
@@ -154,19 +160,21 @@ export default {
           assignment.dueDate = assignmentDueDateCalculated.toDateString()
           
           // eslint-disable-next-line
-          console.log(assignment.dueDate)
+          // console.log(assignment.dueDate)
         }
 
         this.dateStart = new Date(this.vDateStart)
+        this.dateStartSimple = dateStart.toDateString()
         
       }
       else {
         this.textStartDate = "Change Start Date"
 
         // eslint-disable-next-line
-        console.log(this.vDateStart)
+        // console.log(this.vDateStart)
 
         this.dateStart = new Date(this.vDateStart)
+        this.dateStartSimple = this.dateStart.toDateString()
         this.timeDifference = 0
       }
     }

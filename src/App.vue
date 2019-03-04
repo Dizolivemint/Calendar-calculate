@@ -9,10 +9,10 @@
 </template>
 
 <script>
-import CalHeader from "@/components/root/Header"
+/* import CalHeader from "@/components/root/Header" */
 export default {
   components: {
-    CalHeader
+    /* CalHeader */
   }
 }
 </script>

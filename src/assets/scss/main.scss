@@ -1,0 +1,10 @@
+// Import custom variables (overrides Bootstrap default variables)
+@import "./shared";
+
+// Import Bootstrap
+@import "~bootstrap/scss/bootstrap";
+@import "~@fortawesome/fontawesome-free/scss/fontawesome";
+@import "~@fortawesome/fontawesome-free/scss/solid";
+
+// Import custom styles
+@import "./global";

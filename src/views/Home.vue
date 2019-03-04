@@ -74,6 +74,10 @@
                 <div class="card-body" style="margin: auto">
                   <datepicker format="MM/dd" :bootstrap-styling="true" :monday-first="true" v-model="vDateDue"></datepicker>
                   <div class="mt-3">
+                    <p>Assignment/Forum Name:</p>
+                    <input v-model="vAssignmentName" type="text" placeholder="" aria-label="Assignment Name" aria-describedby="basic-addon" class="form-control bg-light border-0 small">
+                  </div>
+                  <div class="mt-3">
                     <button @click="addAssignment()" class="btn btn-primary">Add due date</button>
                   </div>
                   
@@ -99,7 +103,7 @@
               <div class="card-body" style="margin: auto">
                 <div class="card-body" style="margin: auto">
                   <ul class="list-group">
-                    <li v-for="assignment in assignments" :key="assignment.id" class="list-group-item list-group-item-light" >{{ assignment.dueDate }} 
+                    <li v-for="assignment in assignments" :key="assignment.id" class="list-group-item list-group-item-light" >{{ assignment.name }} | {{ assignment.dueDate }} 
                       <i @click="deleteAssignmentDueDate(assignment.id)" class="fa fa-trash" aria-hidden="true"></i>
                     </li>
                   </ul>         
@@ -141,7 +145,7 @@ export default {
       })
     },
     addAssignment() {
-      this.assignments.push({ dueDate: this.vDateDue.toDateString(), id: this.assignments.length - 1 })
+      this.assignments.push({ name: this.vAssignmentName, dueDate: this.vDateDue.toDateString(), id: this.assignments.length - 1 })
     },
     calculateDueDates() {
       if (this.timeDifference != null) {

@@ -164,7 +164,6 @@ export default {
         }
 
         this.dateStart = new Date(this.vDateStart)
-        this.dateStartSimple = dateStart.toDateString()
         
       }
       else {

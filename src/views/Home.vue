@@ -62,7 +62,7 @@
           </div>
           <div class="card-body" style="margin: auto">
             <div class="mt-4">
-              <p class="mt-2">Enter one number at a time</p>
+              <p class="mt-2">Add skip weeks from lead syllabus before due dates</p>
               <select v-model="vSkipWeek" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
                 <option selected>2</option>
                 <option v-for="index in 12" :key="index" :value="index + 2">{{ index + 2 }}</option>

@@ -126,10 +126,10 @@
                       </div>
                   </div>
               </div>
-              <div class="card-body" style="margin: auto">
+              <div class="card-body">
                 <ul class="list-group">
-                  <li v-for="assignment in assignments" :key="assignment.id" class="list-group-item list-group-item-light" ><span v-if="assignment.name" span class="p-3 mb-2 bg-info text-white">{{ assignment.name }}</span> Week {{ assignment.week }}: {{ assignment.dueDate }} 
-                    <i @click="deleteAssignmentDueDate(assignment.id)" class="fa fa-trash" aria-hidden="true"></i>
+                  <li v-for="assignment in assignments" :key="assignment.id" class="list-group-item list-group-item-light" ><span v-if="assignment.name" span class="p-3 mb-2 bg-info text-white float-left">{{ assignment.name }}</span><span class="p-3 mb-2 float-right"> Week {{ assignment.week }}: {{ assignment.dueDate }} 
+                    &nbsp;&nbsp;<i @click="deleteAssignmentDueDate(assignment.id)" class="fa fa-trash" aria-hidden="true"></i></span>
                   </li>
                 </ul>               
               </div>

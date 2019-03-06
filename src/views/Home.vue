@@ -63,7 +63,10 @@
           <div class="card-body" style="margin: auto">
             <div class="mt-4">
               <p class="mt-2">Enter one number at a time</p>
-              <input type="text" aria-label="Skip week" aria-describedby="basic-addon" class="form-control small" v-model="vSkipWeek">
+              <select v-model="vSkipWeek" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>2</option>
+                <option v-for="index in 12" :key="index" :value="index + 2">{{ index + 2 }}</option>
+            </select>
             </div>
             <div class="mt-4">
               <button @keypress.Enter="addSkipWeek()" @click="addSkipWeek()" class="btn btn-primary">Add skip week</button>
